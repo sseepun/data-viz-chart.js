@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ClassClever | Data Visualization</title>
+</head>
+<body>
+    <canvas id="scatterChart" width="800" height="360px"></canvas>​
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        function randomNumberArray(length, min, max){
+            let result = [];
+            for(let i=0; i<length; i++){
+                result.push({
+                    x: Math.round((max - min) * Math.random()) - min,
+                    y: Math.round((max - min) * Math.random()) - min
+                });
+            }
+            return result;
+        }
+
+        var scatterChartData = {
+            datasets: [{
+                label: 'Dataset 1',
+                borderColor: 'rgb(153, 0, 51)',
+                backgroundColor: 'rgba(153, 0, 51, 0.5)',
+                data: randomNumberArray(15, -25, 25)
+            }, {
+                label: 'Dataset 2',
+                borderColor: 'rgb(241, 196, 15)',
+                backgroundColor: 'rgba(241, 196, 15, 0.5)',
+                data: randomNumberArray(15, -25, 25)
+            }, {
+                label: 'Dataset 3',
+                borderColor: 'rgb(52, 152, 219)',
+                backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                data: randomNumberArray(15, -25, 25)
+            }]
+        };
+
+        var optionObject = {
+            title: {
+                text: 'Scatter Chart',
+                display: true
+            }
+        }
+
+        var selector = "scatterChart";
+        // var selector = $("#scatterChart");
+        // var selector = document.getElementById("scatterChart");
+        // var selector = document.getElementById("scatterChart").getContext("2d");
+
+        var scatterChart = Chart.Scatter(selector, {
+            data: scatterChartData,
+            options: optionObject
+        });
+    </script>
+</body>
+</html>
