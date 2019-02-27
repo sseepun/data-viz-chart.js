@@ -1,1 +1,1 @@
-# data-viz-chart.js
+# Data Visualization with Chart.js
