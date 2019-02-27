@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ClassClever | Data Visualization</title>
+</head>
+<body>
+    <canvas id="lineChart" width="800" height="340"></canvas>​
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        var selector = "lineChart";
+        // var selector = $("#lineChart");
+        // var selector = document.getElementById("lineChart");
+        // var selector = document.getElementById("lineChart").getContext("2d");
+
+        var dataObject = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+            datasets: [{
+                backgroundColor: 'rgba(255, 72, 0, .4)',
+                borderColor: 'rgb(255, 72, 0)',
+                data: [-76.97, 46.91, 32.31, -7.19, -9.85, -76.91, -50.36, 42.66],
+                label: 'Dataset'
+            }]
+        };
+
+        var optionObject = {
+            title: {
+                text: 'Random Dataset',
+                display: true
+            }
+        };
+
+        var lineChart = new Chart(selector, {
+            type: 'line',
+            data: dataObject,
+            options: optionObject
+        });
+    </script>
+</body>
+</html>

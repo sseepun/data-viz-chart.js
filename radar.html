@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ClassClever | Data Visualization</title>
+</head>
+<body>
+    <canvas id="radarChart" width="800" height="400"></canvas>​
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        var selector = "radarChart";
+        // var selector = $("#radarChart");
+        // var selector = document.getElementById("radarChart");
+        // var selector = document.getElementById("radarChart").getContext("2d");
+
+        var dataObject = {
+            labels: [
+                'January', 'February', 'March', 'April', 'May', 'June', 'July', 
+                'August', 'September', 'October', 'November', 'December'
+            ],
+            datasets: [{
+                backgroundColor: "rgba(153, 0, 51, 0.5)",
+                borderColor: "rgb(153, 0, 51)",
+                data: [11.92, 8.92, 11.55, 8.63, 12.72, 10.28, 13.26, 11.99, 10.12, 7.92, 9.25, 10.23],
+                label: "Data 1",
+                fill: true
+            }, {
+                backgroundColor: "rgba(241, 196, 15, 0.5)",
+                borderColor: "rgb(241, 196, 15)",
+                data: [25.3, 21.4, 20.96, 24.14, 21.69, 25.93, 24.61, 25.36, 22.15, 23.34, 21.96, 24.14],
+                label: "Data 2",
+                fill: "-1"
+            }, {
+                backgroundColor: "rgba(52, 152, 219, 0.5)",
+                borderColor: "rgb(52, 152, 219)",
+                data: [34.66, 32.97, 33.34, 33.37, 32.5, 34.57, 34.52, 37.13, 31.66, 33.55, 32.74, 33.87],
+                label: "Data 3",
+                fill: "-1"
+            }]
+        };
+
+        var optionObject = {
+            maintainAspectRatio: false,
+            spanGaps: false,
+            elements: {
+                line: {tension: 0.000001}
+            },
+            legend: {
+                position: 'right'
+            }
+        };
+
+        var radarChart = new Chart(selector, {
+            type: 'radar',
+            data: dataObject,
+            options: optionObject
+        });
+    </script>
+</body>
+</html>
