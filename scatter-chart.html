@@ -16,8 +16,8 @@
             let result = [];
             for(let i=0; i<length; i++){
                 result.push({
-                    x: Math.round((max - min) * Math.random()) - min,
-                    y: Math.round((max - min) * Math.random()) - min
+                    x: Math.round((max - min) * Math.random()) + min,
+                    y: Math.round((max - min) * Math.random()) + min
                 });
             }
             return result;
