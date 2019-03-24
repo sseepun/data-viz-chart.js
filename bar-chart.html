@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ClassClever | Data Visualization</title>
+</head>
+<body>
+    <canvas id="barChart" width="800" height="360px"></canvas>​
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        function randomNumberArray(length, min, max){
+            let result = [];
+            for(let i=0; i<length; i++){
+                result.push(Math.round((max - min) * Math.random()) + min);
+            }
+            return result;
+        }
+
+        var selector = "barChart";
+        // var selector = $("#barChart");
+        // var selector = document.getElementById("barChart");
+        // var selector = document.getElementById("barChart").getContext("2d");
+        var barChartData = {
+            labels: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม'],
+            datasets: [{
+                label: 'Dataset 1',
+                backgroundColor: 'rgba(153, 0, 51, 0.4)',
+                borderColor: 'rgba(153, 0, 51, 1)',
+                borderWidth: 1,
+                data: randomNumberArray(7, 0, 100)
+            }, {
+                label: 'Dataset 2',
+                backgroundColor: 'rgba(255, 72, 0, 0.4)',
+                borderColor: 'rgba(255, 72, 0, 1)',
+                borderWidth: 1,
+                data: randomNumberArray(7, 0, 100)
+            }, {
+                label: 'Dataset 3',
+                backgroundColor: 'rgba(241, 196, 15, 0.4)',
+                borderColor: 'rgba(241, 196, 15, 1)',
+                borderWidth: 1,
+                data: randomNumberArray(7, 0, 100)
+            }]
+        };
+        var optionObject = {
+            responsive: true,
+            legend: {position: 'top'},
+            title: {display: true, text: 'Bar Chart'}
+        };
+        
+        var barChart = new Chart(selector, {
+            type: 'bar',
+            data: barChartData,
+            options: optionObject
+        });
+    </script>
+</body>
+</html
