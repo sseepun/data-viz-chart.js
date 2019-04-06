@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ClassClever | Data Visualization</title>
+</head>
+<body>
+    <canvas id="doughnutChart" width="800" height="300"></canvas>​
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        var selector = "doughnutChart";
+        // var selector = $("#doughnutChart");
+        // var selector = document.getElementById("doughnutChart");
+        // var selector = document.getElementById("doughnutChart").getContext("2d");
+
+        var doughnutChartData = {
+            datasets: [{
+                data: [20, 15, 40, 25, 10],
+                backgroundColor: ['#173F5F', '#20639B', '#3CAEA3', '#F6D55C', '#ED553B']
+            }],
+            labels: ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5']
+        };
+
+        var optionObject = {
+            responsive: true,
+            legend: {position: 'top'},
+            title: {display: true, text: 'ClassClever Doughnut Chart'},
+            animation: {nimateScale: true, animateRotate: true}
+        };
+
+        var doughnutChart = new Chart(selector, {
+            type: 'doughnut',
+            data: doughnutChartData,
+            options: optionObject
+        });
+    </script>
+</body>
+</html>
